@@ -1,0 +1,111 @@
+@import 'global';
+
+// nav bar at top of screen.
+
+#nav {
+  background-color: white;
+  color: #8a7976;
+  @include font-size(18);
+  line-height: 1;
+  position: fixed;
+  transition: background .2s;
+  width: 100%;
+  z-index: 1;
+  @include box-shadow;
+}
+
+// Show only menu items, not the nav bar, over logo background.
+#nav.top {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+#nav.top.lite {
+  color: white;
+
+  #menu .blue-1-hilite {
+    color: lighten($blue, 30);
+  }
+}
+
+#toggle {
+  background: white url($image_path + 'logoblue.png') repeat-y;
+  display: inline;
+  float: left;
+  height: 50px;
+  margin-left: 30px;
+  position: relative;
+  transition: top .2s;
+  top: 0;
+  width: 120px;
+}
+
+.top #toggle {
+  top: -54px;
+}
+
+#scribble {
+  background-color: translucent-title($blue);
+  float: left;
+  list-style: none;
+  line-height: 50px;
+  margin: 0;
+  padding: 0 0 0 10px;
+  position: absolute;
+  transition: top .2s;
+  top: -51px;
+  transform-origin: left bottom;
+  transform: rotate(-5deg);
+  width: 100%;
+
+  li {
+    color: white;
+    display: inline;
+    font-style: italic;
+    font-weight: bold;
+    padding: 0 .5em 0 .5em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    position: relative;
+    top: 24px;
+  }
+}
+
+.top #scribble {
+  top: 0;
+}
+
+#menu {
+  float: right;
+  list-style: none;
+  line-height: 50px;
+  margin: 0;
+  padding: 0 0 0 40px;
+  text-align: right;
+
+  li {
+    display: inline;
+    padding-right: 40px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      // This color is set to background of article in view.
+      color: $blue;
+      text-decoration: underline;
+    }
+  }
+}

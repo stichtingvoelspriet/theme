@@ -1,0 +1,35 @@
+@import 'global';
+
+// Common stuff for all articles.
+
+header {
+  background: no-repeat fixed center;
+  background-size: cover;
+  line-height: 400px;
+}
+
+.title {
+  @include font-size(32);
+  font-style: italic;
+  line-height: 110px;
+  text-align: center;
+
+  span {
+    display: inline-block;
+    line-height: 1.2;
+  }
+}
+
+.body {
+  margin: 0;
+  overflow-x: hidden;
+  padding: 60px 20% 60px 20%;
+
+  h1:first-child {
+    margin: 0;
+  }
+}
+
+p {
+  margin: .5em 0;
+}

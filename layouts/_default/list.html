@@ -1,0 +1,53 @@
+{{- define "main" -}}
+	{{- $colorPanes := slice "blue-1" "green-1" "yellow-1" "red-1" "grey-1" "blue-2" "green-2" "yellow-2" "red-2" "grey-2" -}}
+	{{- $section := .Section -}}
+<nav id="nav" class="top">
+	<div id="toggle"></div>
+		{{- with .Site.Params.scribble -}}
+			{{- with (index . $section) -}}
+	<ul id="scribble">
+		<li><a href="{{- index . "url" -}}">{{ index . "name" }}<img src="/logos/pijl.png"></a></li>
+	</ul>
+			{{- end -}}
+		{{- end -}}
+	<ul id="menu">
+	{{- with .Site.Menus -}}
+		{{- range .external -}}
+			<li><a href="{{ .URL }}" target="_blank" rel="noopener">{{- .Pre -}}</a></li>
+		{{- end -}}
+		{{- with (index . $section) -}}
+			{{- range $itemIndex, $item := . -}}
+		<li><a href="{{ .URL }}" class="{{ index $colorPanes $itemIndex }}-hilite">{{- .Name -}}</a></li>
+			{{- end -}}
+		{{- end -}}
+	{{- end -}}
+	</ul>
+</nav>
+	{{- range $pageIndex, $page := (where .Site.RegularPages "Section" "==" $section) -}}
+<article class="{{ index $colorPanes $pageIndex }}-pane">
+	<header style="background-image: url({{printf .Site.Params.imageUrl $section .Params.image }})">
+		{{- if (and (eq $section "") (eq $pageIndex 0)) -}}
+		<div id="logo"></div>
+		{{- else -}}
+		<div class="slant"></div>&nbsp;
+		{{- end -}}
+		<div class="title" id="{{ .File.BaseFileName }}">
+			<span>{{- .Title -}}
+		{{- if (and (eq $section "") (eq $pageIndex 0)) -}}
+			<img src="logos/pijl.png">
+		{{- end -}}
+			</span>
+		</div>
+	</header>
+		{{- with .Params.items -}}
+	<div class="body projects">
+			{{- range ($.Site.GetPage "section" .).Pages -}}
+		<div id="{{ .File.BaseFileName }}" class="project off">{{- .Content -}}</div>
+			{{- end -}}
+	</div>
+		{{- else -}}
+	<div class="body">{{- .Content -}}</div>
+		{{- end -}}
+</article>
+	{{- end -}}
+{{- end -}}

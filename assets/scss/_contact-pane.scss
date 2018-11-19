@@ -1,0 +1,24 @@
+.contact, .colofon {
+
+  h1 {
+    @include font-size(27);
+    font-weight: normal;
+    line-height: 1.2;
+  }
+
+  @include font-size(18);
+  line-height: 1.4;
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+}
+
+.contact {
+  margin-right: 1%;
+  text-align: right;
+}
+
+.colofon {
+  margin-left: 1%;
+  text-align: left;
+}
