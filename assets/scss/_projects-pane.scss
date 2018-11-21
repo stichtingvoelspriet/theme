@@ -10,8 +10,12 @@
   overflow: hidden;
   padding: 1em 5% 1em 5%;
 
-  h1:first-project {
+  h1:first-child {
     cursor: hand;
+
+    &:before {
+      content: '▼ '
+    }
   }
 }
 
