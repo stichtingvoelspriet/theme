@@ -1,3 +1,0 @@
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
-{{- $script := slice (resources.Get "js/global.js") (resources.Get "js/layout.js") (resources.Get "js/lite.js") (resources.Get "js/menu.js") (resources.Get "js/nav.js") (resources.Get "js/what.js") | resources.Concat "js/script.js" | resources.Minify | resources.Fingerprint -}}
-<script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
