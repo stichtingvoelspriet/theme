@@ -1,38 +1,36 @@
 var M = (function (m) {
   'use strict';
-  var bg = $('#litebg'), box = $('#litebox'), img = $('#liteimg'), prev = $('#liteprev'), next = $('#litenext');
+  var bg = $('#litebg'), box = $('#litebox'), img = $('#liteimg'), prev = $('#liteprev'), next = $('#litenext'), nowa, preva, nexta;
 
-  function set(src) {
-    bg.toggle(!!src);
-    box.toggle(!!src);
-    img.attr('src', src);
+  function set(url) {
+    bg.toggle(!!url);
+    box.toggle(!!url);
+    // Show spinner first.
+    img.attr('src', '').attr('src', url);
   }
 
-  function unset() {
-    set(null);
+  function clr() {
+    set('');
   }
 
-  bg.click(unset);
-  box.click(unset);
-
-  function show(a) {
-    var a = $(a), href = a.attr('href'), preva = a.prev('a')[0], nexta = a.next('a')[0];
-    prev.click(function() {
-      set();
-      return show(preva);
-    });
-    next.click(function() {
-      set();
-      return show(nexta);
-    });
-    prev.toggle(!!preva);
-    next.toggle(!!nexta);
-    set(href);
+  function click(a) {
+    nowa = $(a);
+    prev.toggle(!!(preva = nowa.prev('a')[0]));
+    next.toggle(!!(nexta = nowa.next('a')[0]));
+    set(nowa.attr('href'));
     return false;
   }
 
+  bg.click(clr);
+  box.click(clr);
+  prev.click(function () {
+    return click(preva);
+  });
+  next.click(function () {
+    return click(nexta);
+  });
   $('a[href$="jpg"]>img').click(function () {
-    return show(this.parentNode);
+    return click(this.parentNode);
   });
   return m;
 })(M || {});
