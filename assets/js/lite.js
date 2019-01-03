@@ -1,22 +1,38 @@
 var M = (function (m) {
   'use strict';
-  var litebox = $('#litebox'), liteimg = $('#liteimg');
+  var bg = $('#litebg'), box = $('#litebox'), img = $('#liteimg'), prev = $('#liteprev'), next = $('#litenext');
 
-  function hide() {
-    litebox.hide();
-    liteimg.hide().attr('src', '');
+  function set(src) {
+    bg.toggle(!!src);
+    box.toggle(!!src);
+    img.attr('src', src);
   }
 
-  litebox.click(hide);
-  liteimg.click(hide);
+  function unset() {
+    set(null);
+  }
 
-  $('a>img').click(function () {
-    var img = $(this), a = img.parent(), href = a.attr('href');
-    if (href.match(/jpg$/)) {
-      liteimg.attr('src', href).show();
-      litebox.show();
-       return false;
-    }
+  bg.click(unset);
+  box.click(unset);
+
+  function show(a) {
+    var a = $(a), href = a.attr('href'), preva = a.prev('a')[0], nexta = a.next('a')[0];
+    prev.click(function() {
+      set();
+      return show(preva);
+    });
+    next.click(function() {
+      set();
+      return show(nexta);
+    });
+    prev.toggle(!!preva);
+    next.toggle(!!nexta);
+    set(href);
+    return false;
+  }
+
+  $('a[href$="jpg"]>img').click(function () {
+    return show(this.parentNode);
   });
   return m;
 })(M || {});
