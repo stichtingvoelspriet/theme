@@ -32,5 +32,12 @@ var M = (function (m) {
   $('a[href$="jpg"]>img').click(function () {
     return click(this.parentNode);
   });
+  document.onkeydown = function (e) {
+    if (e.keyCode === 37) {
+      click(preva);
+    } else if (e.keyCode === 39) {
+      click(nexta);
+    }
+  };
   return m;
 })(M || {});
