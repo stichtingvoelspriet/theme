@@ -9,10 +9,6 @@ var M = (function (m) {
     img.attr('src', '').attr('src', url);
   }
 
-  function clr() {
-    set('');
-  }
-
   function click(a) {
     nowa = $(a);
     prev.toggle(!!(preva = nowa.prev('a')[0]));
@@ -21,8 +17,9 @@ var M = (function (m) {
     return false;
   }
 
-  bg.click(clr);
-  box.click(clr);
+  box.click(function () {
+    set('');
+  });
   prev.click(function () {
     return click(preva);
   });
