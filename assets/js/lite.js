@@ -6,7 +6,7 @@ var M = (function (m) {
     bg.toggle(!!url);
     box.toggle(!!url);
     // Show spinner first.
-    img.attr('src', '').attr('src', url);
+    img.attr('src', '').attr('src', url.replace(/(\/upload\/)/, "$1w_" + m.jwin.width() + ",h_" + m.jwin.height() + ",c_limit/"));
   }
 
   function click(a) {
