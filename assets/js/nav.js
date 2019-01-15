@@ -14,6 +14,7 @@ var M = (function (m) {
     if (isNavClear(top) !== navClear) {
       navClear = !navClear;
       nav.toggleClass('top', navClear);
+      nav.removeClass('show');
     }
   }
 
