@@ -1,9 +1,9 @@
 var M = (function (m) {
   'use strict';
   $('#logo + .title').click(function () {
-    m.goTo(m.jwin.innerHeight());
+    m.goTo(m.w.innerHeight());
   });
-  m.jwin = $(window);
+  m.w = $(window);
   m.callDiv = $('.title:first');
   return m;
 })(M || {});

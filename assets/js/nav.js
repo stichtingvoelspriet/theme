@@ -35,12 +35,12 @@ var M = (function (m) {
   }
 
   function scroller() {
-    var top = m.jwin.scrollTop();
+    var top = m.w.scrollTop();
     setNavClear(top);
     setNavColor(top);
   }
 
-  m.jwin.scroll(scroller);
+  m.w.scroll(scroller);
   m.nav = nav;
   m.isNavClear = isNavClear;
   scroller();

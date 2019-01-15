@@ -5,7 +5,7 @@ var M = (function (m) {
 
   function resizer() {
     // Make bottom of previous article oblique.
-    var width = m.jwin.width(),
+    var width = m.w.width(),
       height = Math.floor(width * 0.05),
       blw = 'border-left-width';
     slants.each(function (i, slant) {
@@ -18,10 +18,10 @@ var M = (function (m) {
       }
     });
     // Set logo to full screen.
-    logo.height(m.jwin.innerHeight() - m.callDiv.height());
+    logo.height(m.w.innerHeight() - m.callDiv.height());
   }
 
-  m.jwin.resize(resizer);
+  m.w.resize(resizer);
   resizer();
   return m;
 })(M);
