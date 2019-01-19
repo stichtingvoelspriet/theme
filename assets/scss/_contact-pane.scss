@@ -1,24 +1,25 @@
-.contact, .colofon {
-
-  h1 {
-    @include font-size(27);
-    font-weight: normal;
-    line-height: 1.2;
-  }
-
-  @include font-size(18);
-  line-height: 1.4;
-  display: inline-block;
-  vertical-align: top;
-  width: 48%;
-}
-
 .contact {
-  margin-right: 1%;
-  text-align: right;
+  ul {
+    display: table;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    li {
+      display: table-cell;
+      text-align: center;
+      i {
+        @include font-size(36);
+      }
+    }
+  }
 }
-
 .colofon {
-  margin-left: 1%;
-  text-align: left;
+  @include font-size(15);
+  padding-top: 40px;
+  width: 100%;
+  td:first-child {
+    text-align: right;
+    font-style: italic;
+    width: 50%;
+  }
 }
