@@ -5,11 +5,9 @@
     padding: 0;
     width: 100%;
     li {
+      @include font-size(36);
       display: table-cell;
       text-align: center;
-      i {
-        @include font-size(36);
-      }
     }
   }
 }
@@ -17,9 +15,12 @@
   @include font-size(15);
   padding-top: 40px;
   width: 100%;
-  td:first-child {
-    text-align: right;
-    font-style: italic;
-    width: 50%;
+  td {
+    vertical-align: top;
+    &:first-child {
+      text-align: right;
+      font-style: italic;
+      width: 50%;
+    }
   }
 }
