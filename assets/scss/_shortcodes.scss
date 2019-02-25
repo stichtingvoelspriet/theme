@@ -1,0 +1,19 @@
+.rsvp {
+  * {
+    display: inline-block;
+  }
+  .rsvp-name {
+    font-style: italic;
+    font-weight: bold;
+    min-width: 200px;
+    width: 40%;
+  }
+  .rsvp-date {
+    font-style: italic;
+    min-width: 200px;
+    width: 40%;
+  }
+  a {
+    width: 10%;
+  }
+}
