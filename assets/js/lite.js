@@ -6,7 +6,7 @@ var M = (function (m) {
     bg.toggle(!!url);
     box.toggle(!!url);
     // Show spinner first.
-    img.attr('src', '').attr('src', url.replace(/(\/upload\/)/, "$1w_" + m.w.width() + ",h_" + m.w.height() + ",c_limit/"));
+    url && img.attr('src', '').attr('src', url.replace(/(\/upload\/)/, "$1w_" + m.w.width() + ",h_" + m.w.height() + ",c_limit/"));
   }
 
   function click(a) {
@@ -36,5 +36,33 @@ var M = (function (m) {
       click(nexta);
     }
   };
+
+  var tx = null;
+  var ty = null;
+
+  document.addEventListener('touchstart', function (e) {
+      var t = e.touches[0];
+      tx = t.clientX;
+      ty = t.clientY;
+  }, false);
+
+  document.addEventListener('touchmove', function (e) {
+      if (!tx||!ty) {
+          return;
+      }
+
+      var dx = tx - e.touches[0].clientX;
+
+      if (Math.abs(dx) > Math.abs(ty - e.touches[0].clientY)) {
+          if (dx > 0) {
+              click(nexta);
+          } else {
+              click(preva);
+          }
+      }
+      tx = null;
+      ty = null;
+  }, false);
+
   return m;
 })(M || {});
