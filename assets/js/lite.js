@@ -1,10 +1,11 @@
 var M = (function (m) {
   'use strict';
-  var bg = $('#litebg'), box = $('#litebox'), img = $('#liteimg'), prev = $('#liteprev'), next = $('#litenext'), nowa, preva, nexta;
+  var bg = $('#litebg'), box = $('#litebox'), img = $('#liteimg'), prev = $('#liteprev'), next = $('#litenext'), nowa, preva, nexta, tx, ty;
 
   function set(url) {
     bg.toggle(!!url);
     box.toggle(!!url);
+    m.b.css('overflow', url ? 'hidden': 'scroll');
     // Show spinner first.
     url && img.attr('src', '').attr('src', url.replace(/(\/upload\/)/, "$1w_" + m.w.width() + ",h_" + m.w.height() + ",c_limit/"));
   }
@@ -20,15 +21,19 @@ var M = (function (m) {
   box.click(function () {
     set('');
   });
+
   prev.click(function () {
     return click(preva);
   });
+
   next.click(function () {
     return click(nexta);
   });
+
   $('a[href$="jpg"]>img').click(function () {
     return click(this.parentNode);
   });
+
   document.onkeydown = function (e) {
     if (e.keyCode === 37) {
       click(preva);
@@ -37,32 +42,24 @@ var M = (function (m) {
     }
   };
 
-  var tx = null;
-  var ty = null;
-
   document.addEventListener('touchstart', function (e) {
       var t = e.touches[0];
       tx = t.clientX;
       ty = t.clientY;
-  }, false);
+  });
 
   document.addEventListener('touchmove', function (e) {
-      if (!tx||!ty) {
-          return;
-      }
+    if (!tx) {
+      return;
+    }
 
-      var dx = tx - e.touches[0].clientX;
+    var dx = tx - e.touches[0].clientX;
 
-      if (Math.abs(dx) > Math.abs(ty - e.touches[0].clientY)) {
-          if (dx > 0) {
-              click(nexta);
-          } else {
-              click(preva);
-          }
-      }
-      tx = null;
-      ty = null;
-  }, false);
+    if (Math.abs(dx) > Math.abs(ty - e.touches[0].clientY)) {
+      dx > 0 ? click(nexta) : click(preva);
+    }
+    tx = ty = null;
+  });
 
   return m;
 })(M || {});

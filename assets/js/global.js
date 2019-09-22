@@ -4,6 +4,7 @@ var M = (function (m) {
     m.goTo(m.w.innerHeight());
   });
   m.w = $(window);
+  m.b = $('html,body');
   m.callDiv = $('.title:first');
   return m;
 })(M || {});

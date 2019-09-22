@@ -1,7 +1,6 @@
 var M = (function (m) {
   'use strict';
-  var menu = $('#menu'),
-    htmlBody = $('html,body');
+  var menu = $('#menu');
 
   function toggledMenu() {
     // The toggled menu is fixed to the screen,
@@ -20,7 +19,7 @@ var M = (function (m) {
   }
 
   function goTo(top) {
-    htmlBody.animate({scrollTop: top - menuOffset(top)});
+    m.b.animate({scrollTop: top - menuOffset(top)});
   }
 
   function topA(name) {
@@ -41,7 +40,7 @@ var M = (function (m) {
     m.nav.toggleClass('show');
     return false;
   });
-  htmlBody.click(hideMenu);
+  m.b.click(hideMenu);
   m.menuOffset = menuOffset;
   m.goTo = goTo;
   m.topA = topA;
