@@ -38,6 +38,5 @@ $magic-font-size: 62.5%;
 
 // Set font-size in px for IE 8 and in rem for others.
 @mixin font-size($s) {
-  font-size: $s + px;
   font-size: ($s / 10) + rem;
 }
