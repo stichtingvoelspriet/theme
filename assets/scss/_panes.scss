@@ -30,7 +30,7 @@
       }
 
       @if nth($color-names, $c) == 'yellow' {
-        .body {
+        section {
           color: $grey;
         }
       }

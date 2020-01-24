@@ -3,7 +3,7 @@
 // On small screens replace menu bar with logo button revealing menu item list.
 
 @media screen and (max-width: 768px) {
-  #nav {
+  nav {
     background-color: transparent;
     box-shadow: none;
     height: 0;
@@ -28,7 +28,7 @@
     }
   }
 
-  #nav.show {
+  nav.show {
     #toggle {
       @include box-shadow($y: 0, $b: 0);
       background-position: center;

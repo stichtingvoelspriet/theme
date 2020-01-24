@@ -1,7 +1,7 @@
 {{- define "main" -}}
 	{{- $colorPanes := slice "blue-1" "green-1" "yellow-1" "red-1" "grey-1" "blue-2" "green-2" "yellow-2" "red-2" "grey-2" -}}
 	{{- $section := .Section -}}
-<nav id="nav" class="top">
+<nav class="top">
 	<div id="toggle"></div>
 		{{- with .Site.Params.scribble -}}
 			{{- with (index . $section) -}}
@@ -46,7 +46,7 @@
 			{{- end -}}
 	</div>
 		{{- else -}}
-	<div class="body">{{- .Content -}}</div>
+	<section>{{- .Content -}}</section>
 		{{- end -}}
 </article>
 	{{- end -}}

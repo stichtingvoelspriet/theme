@@ -11,7 +11,7 @@
     line-height: 90px;
   }
 
-  .body {
+  section {
     padding-left: 10%;
     padding-right: 10%;
   }
@@ -35,7 +35,7 @@
 
 // Fix long unbreakable e-mail address.
 @media screen and (max-width: 384px) {
-  .grey-pane .body {
+  .grey-pane section {
     padding-left: 0;
     padding-right: 0;
   }

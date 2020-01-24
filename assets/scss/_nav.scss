@@ -2,7 +2,7 @@
 
 // nav bar at top of screen.
 
-#nav {
+nav {
   background-color: white;
   color: #8a7976;
   @include font-size(18);
@@ -15,12 +15,12 @@
 }
 
 // Show only menu items, not the nav bar, over logo background.
-#nav.top {
+nav.top {
   background-color: transparent;
   box-shadow: none;
 }
 
-#nav.top.lite {
+nav.top.lite {
   color: white;
 
   #menu .blue-1-hilite {

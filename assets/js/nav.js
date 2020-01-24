@@ -1,6 +1,6 @@
 var M = (function (m) {
   'use strict';
-  var nav = $('#nav'),
+  var nav = $('nav'),
     articles = $('article').get().reverse(),
     currentArticle,
     navClear = true;
