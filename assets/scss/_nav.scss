@@ -45,7 +45,7 @@ nav.top.lite {
 }
 
 #scribble {
-  background-color: translucent-title($blue);
+  @include translucent-bar($blue, 0);
   float: left;
   list-style: none;
   line-height: 50px;

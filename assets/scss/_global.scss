@@ -13,8 +13,8 @@ $image_path: '/logos/';
 $magic-font-size: 62.5%;
 
 // Translucent title bars at top of each article.
-@function translucent-title($color) {
-  @return rgba($color, 0.6);
+@mixin translucent-bar($color, $deg: 180) {
+  background: linear-gradient($deg + deg, rgba($color, 0.4) 0%, rgba($color, .8) 100%);
 }
 
 // Line from lower left to upper right corner.
