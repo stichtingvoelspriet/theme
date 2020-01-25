@@ -6,7 +6,7 @@ var M = (function (m) {
     navClear = true;
 
   function isNavClear(top) {
-    return top <= m.callDiv.offset().top - nav.height();
+    return top === 0;
   }
 
   function setNavClear(top) {
