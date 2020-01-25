@@ -32,8 +32,8 @@ $magic-font-size: 62.5%;
 }
 
 // Drop shadow for nav bar and other nav elements.
-@mixin box-shadow($y: 2px, $b: 2px) {
-  box-shadow: 0 $y $b 0 rgba(0, 0, 0, .2);
+@mixin box-shadow($x: 0, $y: 2, $b: 2) {
+  box-shadow: $x + px $y + px $b + px 0 rgba(0, 0, 0, .2);
 }
 
 // Set font-size in px for IE 8 and in rem for others.
