@@ -12,6 +12,7 @@
 
   h1:first-child {
     cursor: hand;
+    margin: 0;
 
     &:before {
       content: '▼ '
