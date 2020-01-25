@@ -11,6 +11,7 @@
 
   #menu {
     background-color: white;
+    height: 100vh;
     left: -50%;
     padding-left: 0;
     position: fixed;
@@ -38,7 +39,6 @@
 
     #menu {
       @include box-shadow($x: 2, $y: 0, $b: 0);
-      height: 100vh;
       left: 0;
     }
   }
