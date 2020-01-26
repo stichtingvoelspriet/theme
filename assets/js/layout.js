@@ -6,7 +6,7 @@ var M = (function (m) {
   function resizer() {
     // Make bottom of previous article oblique.
     var width = m.w.width(),
-      height = Math.floor(width * 0.05),
+      height = Math.floor(width * 0.02),
       blw = 'border-left-width';
     slants.each(function (i, slant) {
       if ($(slant).css(blw) !== '0px') {
