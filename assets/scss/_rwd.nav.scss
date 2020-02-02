@@ -2,7 +2,7 @@
 
 // On small screens replace menu bar with logo button revealing menu item list.
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1280px) {
   nav {
     background-color: transparent;
     box-shadow: none;
@@ -12,12 +12,12 @@
   #menu {
     background-color: white;
     height: 100vh;
-    left: -50%;
+    left: -75%;
     padding-left: 0;
     position: fixed;
     transition: left .2s ease;
     top: 50px;
-    width: 50%;
+    width: 75%;
     z-index: -1;
 
     li {
@@ -51,6 +51,6 @@
     transform-origin: left bottom;
     transform: rotate(-24deg);
     transition: all .2s ease;
-    width: 50%;
+    width: 75%;
   }
 }

@@ -12,6 +12,14 @@ nav {
   width: 100%;
   z-index: 1;
   @include box-shadow;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline;
+  }
 }
 
 // Show only menu items, not the nav bar, over logo background.
@@ -29,7 +37,7 @@ nav.top.lite {
 }
 
 #toggle {
-  background: white url($image_path + 'logoblue.png') repeat-y;
+  background: white url($image_path + 'logoblue.png') no-repeat;
   float: left;
   height: 50px;
   margin-left: 30px;
@@ -45,8 +53,6 @@ nav.top.lite {
 
 #scribble {
   @include translucent-bar($blue, 0);
-  float: left;
-  list-style: none;
   line-height: 50px;
   margin: 0;
   padding: 0 0 0 10px;
@@ -59,7 +65,6 @@ nav.top.lite {
 
   li {
     color: white;
-    display: inline;
     font-style: italic;
     font-weight: bold;
     padding: 0 .5em 0 .5em;
@@ -86,14 +91,12 @@ nav.top.lite {
 
 #menu {
   float: right;
-  list-style: none;
   line-height: 50px;
   margin: 0;
   padding: 0 0 0 40px;
   text-align: right;
 
   li {
-    display: inline;
     padding-right: 40px;
   }
 
