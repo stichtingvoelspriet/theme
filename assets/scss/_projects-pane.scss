@@ -15,7 +15,7 @@
     margin: 0;
 
     &:before {
-      content: '▼ ';
+      content: '▲ ';
     }
   }
 }
@@ -25,6 +25,6 @@
   height: 5em;
 
   h1:first-child:before {
-    content: '► ';
+    content: '▼ ';
   }
 }
