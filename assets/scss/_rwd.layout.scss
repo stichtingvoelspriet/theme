@@ -31,7 +31,11 @@
       padding-right: 5%;
     }
   }
-}
+  
+    .on .onoff {
+      right: 2em;
+    }
+  }
 
 // Fix long unbreakable e-mail address.
 @media screen and (max-width: 384px) {

@@ -1,30 +1,60 @@
+#projectsbg {
+  background-color: $yellow;
+  display: none;
+  height: 100%;
+  opacity: .8;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
 .projects {
   padding: 1em 15% 1em 15%;
 }
 
 .project {
-  @include box-shadow;
   background-color: white;
+  box-sizing: border-box;
   color: $grey;
-  margin: .5em 0 .5em 0;
-  overflow: hidden;
-  padding: 1em 5% 1em 5%;
+  padding: 2em 2em 2em 2em;
+  transition-property: left, top;
+  transition-duration: .2s;
+  transition-timing-function: ease;
+}
 
-  h1:first-child {
-    cursor: hand;
-    margin: 0;
+.onoff {
+  @include font-size(32);
+}
 
-    &:before {
-      content: '▲ ';
-    }
+.on {
+  @include box-shadow;
+  height: calc(100% - 4em);
+  left: 2em;
+  overflow-y: auto;
+  position: fixed;
+  top: 2em;
+  width: calc(100% - 4em);
+  z-index: 3;
+
+  .onoff {
+    position: fixed;
+    right: 2.5em;
+    top: 2em;
   }
 }
 
 .off {
   box-shadow: inset 0 -2px 2px 0 rgba(0, 0, 0, 0.2);
   height: 5em;
+  left: 0;
+  margin: .5em 0 .5em 0;
+  overflow: hidden;
+  position: relative;
+  top: 0;
 
-  h1:first-child:before {
-    content: '▼ ';
+  .onoff {
+    position: absolute;
+    right: 1em;
+    top: 1em;
   }
 }

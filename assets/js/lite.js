@@ -5,7 +5,7 @@ var M = (function (m) {
   function set(url) {
     bg.toggle(!!url);
     box.toggle(!!url);
-    m.b.css('overflow', url ? 'hidden': '');
+    m.bscroll();
     // Show spinner first.
     url && img.attr('src', '').attr('src', url.replace(/(\/upload\/)/, "$1w_" + m.w.width() + ",h_" + m.w.height() + ",c_limit/"));
   }

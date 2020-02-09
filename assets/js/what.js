@@ -1,25 +1,25 @@
 var M = (function (m) {
   'use strict';
-  var projects = $('.project');
-  var foldedHeight = projects.height();
+  var projects = $('.project'), bg = $('#projectsbg'), on = 'fa-expand', off = 'fa-times';
 
   function toggle(project, show) {
     if (show || project.hasClass('off')) {
       projects.each(function () {
         var current = project.is(this);
-        $(this).toggleClass('off', !current).animate({height: current ? this.scrollHeight : foldedHeight}, current ? function () {
-          m.goTo(project.offset().top);
-          $(this).css('height', 'auto');
-        } : undefined);
+        $(this).toggleClass('on', current).toggleClass('off', !current);
+        $('.onoff', this)
+        .toggleClass(on, !current)
+        .toggleClass(off, current);
       });
     } else {
-      project.addClass('off').animate({height: foldedHeight}, function () {
-        m.goTo(m.topA('wat'));
-      });
+      project.removeClass('on').addClass('off').scrollTop(0);
+      $('.onoff').addClass(on).removeClass(off);
     }
+    bg.toggle();
+    m.bscroll();
   }
 
-  $('h1:first-child', projects).click(function () {
+  $('.onoff', projects).click(function () {
     toggle($(this).parent());
   });
   m.show = function (name) {

@@ -40,11 +40,11 @@
 		</div>
 	</header>
 		{{- with .Params.items -}}
-	<div class="body projects">
+	<section class="projects">
 			{{- range ($.Site.GetPage "section" .).Pages -}}
-		<div id="{{ .File.BaseFileName }}" class="project off">{{- .Content -}}</div>
+		<div id="{{ .File.BaseFileName }}" class="project off">{{- .Content -}}<i class="fas fa-expand onoff"></i></div>
 			{{- end -}}
-	</div>
+	</section>
 		{{- else -}}
 	<section>{{- .Content -}}</section>
 		{{- end -}}
