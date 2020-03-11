@@ -16,7 +16,7 @@
   background-color: white;
   box-sizing: border-box;
   color: $grey;
-  padding: 2em 2em 2em 2em;
+  padding: 1em 2em 2em 2em;
   transition-property: left, top;
   transition-duration: .2s;
   transition-timing-function: ease;
@@ -52,9 +52,18 @@
   position: relative;
   top: 0;
 
-  .onoff {
+  h1:first-child {
+    @include font-size(32);
+  }
+
+  .onoff:not(:first-child) {
     position: absolute;
     right: 1em;
     top: 1em;
+    visibility: visible;
+  }
+
+  *:not(:first-child) {
+    visibility: hidden;
   }
 }
